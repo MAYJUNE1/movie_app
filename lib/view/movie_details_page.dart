@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:movie_app/helper/api_helper.dart';
-import 'package:movie_app/helper/constants.dart';
 import 'package:movie_app/helper/custom_widget.dart';
 import 'package:movie_app/model/cast.dart';
 import 'package:movie_app/model/movie.dart';
@@ -72,10 +71,10 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
                   ),
                 );
               } else {
-                return Container();
+                return loadingIndicator(context);
               }
             } else {
-              return Container();
+              return loadingIndicator(context);
             }
           });
     });
@@ -131,7 +130,8 @@ class _MovieDetailsPageState extends State<MovieDetailsPage> {
     List<Widget> widgetList = [];
 
     for (int i = 0; i < movieProvider.selectedMovie.genres!.length; i++) {
-      widgetList.add(tagView(movieProvider.selectedMovie.genres![i].name!));
+      widgetList
+          .add(tagView(context, movieProvider.selectedMovie.genres![i].name!));
     }
 
     return Container(

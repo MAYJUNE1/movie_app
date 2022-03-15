@@ -62,10 +62,10 @@ class _PopularSectionState extends State<PopularSection> {
               initialPage: 0,
               viewportFraction: 0.9,
             ),
-            itemCount: movieList.length,
+            itemCount: 10,
             itemBuilder: (context, i) {
               return posterView(context, movieList[i], i == 0 ? true : false,
-                  i == movieList.length - 1 ? true : false);
+                  i == 9 ? true : false);
             }));
   }
 

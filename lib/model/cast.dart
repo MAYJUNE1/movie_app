@@ -31,14 +31,17 @@ class Cast {
   String? name;
   String? profile_path;
   String? character;
+  String? title;
+  String? poster_path;
 
-  Cast({
-    this.id,
-    this.gender,
-    this.name,
-    this.profile_path,
-    this.character,
-  });
+  Cast(
+      {this.id,
+      this.gender,
+      this.name,
+      this.profile_path,
+      this.character,
+      this.title,
+      this.poster_path});
 
   Cast.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -46,6 +49,8 @@ class Cast {
     name = json['name'];
     profile_path = json['profile_path'];
     character = json['character'];
+    title = json['title'];
+    poster_path = json['poster_path'];
   }
 
   Map<String, dynamic> toJson() {

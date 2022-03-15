@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
           //     bodyText2: TextStyle(fontSize: 14.0),
           //   ).apply(displayColor: Colors.amber[300]),
           // ),
-          home: HomePage(),
+          home: const HomePage(),
         ));
   }
 }

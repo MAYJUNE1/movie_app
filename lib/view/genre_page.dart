@@ -4,7 +4,6 @@ import 'package:movie_app/helper/api_helper.dart';
 import 'package:movie_app/helper/constants.dart';
 import 'package:movie_app/helper/custom_widget.dart';
 import 'package:movie_app/model/movie.dart';
-import 'package:movie_app/view/section/favourite_section.dart';
 import 'package:movie_app/view_model/movie_provider.dart';
 import 'package:provider/provider.dart';
 

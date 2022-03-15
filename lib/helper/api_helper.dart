@@ -5,6 +5,7 @@ import 'package:movie_app/helper/constants.dart';
 import 'package:movie_app/model/cast.dart';
 import 'package:movie_app/model/genre.dart';
 import 'package:movie_app/model/movie.dart';
+import 'package:movie_app/model/person.dart';
 import 'package:movie_app/model/ws_response.dart';
 import 'package:http/http.dart' as http;
 
@@ -34,7 +35,7 @@ Future<Movie> getMovieDetails(int id) async {
     if (statusCode == 7) {
       throw ('Wrong API Key');
     } else {
-      throw ('asd');
+      throw ('Unknow Error');
     }
   }
 }
@@ -52,7 +53,7 @@ Future<MovieList> getUpcomingMovieList() async {
     if (statusCode == 7) {
       throw ('Wrong API Key');
     } else {
-      throw ('asd');
+      throw ('Unknow Error');
     }
   }
 }
@@ -70,7 +71,7 @@ Future<MovieList> getTopMovieList() async {
     if (statusCode == 7) {
       throw ('Wrong API Key');
     } else {
-      throw ('asd');
+      throw ('Unknow Error');
     }
   }
 }
@@ -89,7 +90,7 @@ Future<CastList> getMovieCast(int movieId) async {
     if (statusCode == 7) {
       throw ('Wrong API Key');
     } else {
-      throw ('asd');
+      throw ('Unknow Error');
     }
   }
 }
@@ -107,7 +108,7 @@ Future<GenreList> getGenreList() async {
     if (statusCode == 7) {
       throw ('Wrong API Key');
     } else {
-      throw ('asd');
+      throw ('Unknow Error');
     }
   }
 }
@@ -126,7 +127,26 @@ Future<MovieList> getGenreMovieList(int id) async {
     if (statusCode == 7) {
       throw ('Wrong API Key');
     } else {
-      throw ('asd');
+      throw ('Unknow Error');
+    }
+  }
+}
+
+Future<Person> getPersonList(int id) async {
+  WSResponse reply = await httpClientGet(
+      Uri.parse(GETPERSON_URL.replaceAll('{personId}', id.toString())),
+      const Duration(minutes: API_TIMEOUT));
+
+  var results = jsonDecode(reply.data);
+  var statusCode = results['status_code'];
+
+  if (reply.statusCode == 200) {
+    return Person.fromJson(jsonDecode(reply.data));
+  } else {
+    if (statusCode == 7) {
+      throw ('Wrong API Key');
+    } else {
+      throw ('Unknow Error');
     }
   }
 }

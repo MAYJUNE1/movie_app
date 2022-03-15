@@ -8,7 +8,7 @@ class AppTheme {
         color: Colors.white, iconTheme: IconThemeData(color: Colors.black)),
     colorScheme: const ColorScheme.light(
       primary: Colors.white,
-      onPrimary: Colors.white,
+      onPrimary: Colors.black,
       primaryVariant: Colors.white38,
       secondary: Colors.red,
     ),
@@ -38,15 +38,15 @@ class AppTheme {
         color: Colors.black, iconTheme: IconThemeData(color: Colors.white)),
     colorScheme: const ColorScheme.light(
       primary: Colors.black,
-      onPrimary: Colors.black,
+      onPrimary: Colors.white,
       primaryVariant: Colors.black,
       secondary: Colors.red,
     ),
     textTheme: const TextTheme(
         headline1: TextStyle(
-            fontSize: 32.0, fontWeight: FontWeight.bold, color: Colors.black),
+            fontSize: 32.0, fontWeight: FontWeight.bold, color: Colors.white),
         headline2: TextStyle(
-            fontSize: 28.0, fontWeight: FontWeight.bold, color: Colors.black),
+            fontSize: 28.0, fontWeight: FontWeight.bold, color: Colors.white),
         headline3: TextStyle(
             fontSize: 24.0, fontWeight: FontWeight.bold, color: Colors.white),
         headline4: TextStyle(

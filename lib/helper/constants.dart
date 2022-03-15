@@ -14,4 +14,7 @@ const String CASTDETAILS_URL =
 const String MOVIEGENRE_URL = BASE_URL + 'genre/movie/list' + API_KEY;
 const String GETMOVIEBYGENRE_URL =
     BASE_URL + 'discover/movie' + API_KEY + '&with_genres={genreId}';
+const String GETPERSON_URL =
+    'https://api.themoviedb.org/3/person/{personId}?api_key=4450407b6d1d60623d955f1bc9c6a9a3&append_to_response=combined_credits';
+
 const String GETPOSTERIMG_URL = "https://image.tmdb.org/t/p/original";

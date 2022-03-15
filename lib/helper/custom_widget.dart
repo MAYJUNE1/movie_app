@@ -2,7 +2,6 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:movie_app/model/cast.dart';
-import 'package:movie_app/model/movie.dart';
 
 import 'constants.dart';
 
@@ -57,10 +56,25 @@ Widget sliverTextAppBar(BuildContext context, String title) {
   );
 }
 
+Widget imageCardView(String path) {
+  return Card(
+    semanticContainer: true,
+    clipBehavior: Clip.antiAliasWithSaveLayer,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(15.0),
+    ),
+    color: Colors.grey[200],
+    child: Image.network(
+      GETPOSTERIMG_URL + path,
+      fit: BoxFit.cover,
+    ),
+  );
+}
+
 Widget sectionTitle(BuildContext context, String title) {
   return Container(
     padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
-    child: Text(title, style: Theme.of(context).textTheme.headline2),
+    child: Text(title, style: Theme.of(context).textTheme.headline4),
   );
 }
 
@@ -85,7 +99,7 @@ Widget infoView(BuildContext context, String title, String info) {
       ));
 }
 
-Widget tagView(String title) {
+Widget tagView(BuildContext context, String title) {
   return Container(
       margin: const EdgeInsets.fromLTRB(0, 5, 5, 5),
       padding: const EdgeInsets.all(5),
@@ -93,7 +107,7 @@ Widget tagView(String title) {
       child: Text(title),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(5),
-        border: Border.all(),
+        border: Border.all(color: Theme.of(context).colorScheme.onPrimary),
       ));
 }
 
@@ -127,4 +141,20 @@ Widget avatarView(BuildContext context, Cast cast) {
           ),
         ],
       ));
+}
+
+Widget loadingIndicator(BuildContext context) {
+  return Container(
+    height: MediaQuery.of(context).size.height,
+    width: MediaQuery.of(context).size.width,
+    color: Colors.grey.withOpacity(0.7),
+    child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: const <Widget>[
+          CircularProgressIndicator(
+            valueColor: AlwaysStoppedAnimation<Color?>(Colors.amber),
+          ),
+        ]),
+  );
 }

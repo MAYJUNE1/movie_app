@@ -42,7 +42,7 @@ class _ChartSectionState extends State<ChartSection> {
                     padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                     child: sectionTitle(context, 'Top 10'),
                   ),
-                  movieListView(context, snapshot.data.movies),
+                  movieListView(snapshot.data.movies),
                 ],
               );
             } else {
@@ -54,19 +54,18 @@ class _ChartSectionState extends State<ChartSection> {
         });
   }
 
-  Widget movieListView(BuildContext context, List<Movie> movieList) {
+  Widget movieListView(List<Movie> movieList) {
     return SizedBox(
-        height: MediaQuery.of(context).size.height * 0.20,
+        height: MediaQuery.of(context).size.height * 0.25,
         child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: 10,
             itemBuilder: (context, i) {
-              return movieChartView(context, movieList[i], i + 1);
+              return movieChartView(movieList[i], i + 1);
             }));
   }
 
   Widget movieChartView(
-    BuildContext context,
     Movie movie,
     int rank,
   ) {
@@ -75,24 +74,15 @@ class _ChartSectionState extends State<ChartSection> {
           toMovieDetail(context, movieProvider, movie.id!);
         },
         child: Container(
-          padding: rank == 1
-              ? const EdgeInsets.fromLTRB(10, 0, 0, 0)
-              : rank == 10
-                  ? const EdgeInsets.fromLTRB(0, 0, 10, 0)
-                  : const EdgeInsets.all(0),
+          padding: const EdgeInsets.all(5),
           width: MediaQuery.of(context).size.width * 0.45,
           child: Stack(
             children: [
               Positioned.fill(
-                  left: 45.0,
-                  child: ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: Image.network(
-                        GETPOSTERIMG_URL + movie.posterPath!,
-                        fit: BoxFit.cover,
-                      ))),
+                  left: 30.0, child: imageCardView(movie.posterPath!)),
               Positioned(
-                  top: -20,
+                  top: -15,
+                  left: 5,
                   child: Text(rank.toString(),
                       style: const TextStyle(
                         color: Colors.amberAccent,

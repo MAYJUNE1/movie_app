@@ -1,6 +1,6 @@
 version: "Apple Swift version 5.5 (swiftlang-1300.0.31.1 clang-1300.0.29.1)"
 options: "2b5e44d00e5aaf869086c162b892b3a75ce712ed92a4b0cc36331011896ffae3"
-build_start_time: [1647244416, 729269981]
-build_end_time: [1647244418, 119257926]
+build_start_time: [1647340996, 750711917]
+build_end_time: [1647340998, 362709045]
 inputs:
   "/Users/meiting/Desktop/MovieApp/ios/Runner/AppDelegate.swift": [1646981526, 639452934]

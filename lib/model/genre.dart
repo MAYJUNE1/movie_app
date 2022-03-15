@@ -1,7 +1,5 @@
 // ignore_for_file: non_constant_identifier_names
 
-import 'package:movie_app/model/movie.dart';
-
 class GenreList {
   List<Genre>? genres;
 

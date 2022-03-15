@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:movie_app/helper/api_helper.dart';
 import 'package:movie_app/helper/constants.dart';
-import 'package:movie_app/helper/custom_widget.dart';
 import 'package:movie_app/model/movie.dart';
 import 'package:movie_app/view/movie_details_page.dart';
 import 'package:movie_app/view_model/movie_provider.dart';

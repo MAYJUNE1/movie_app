@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:movie_app/helper/api_helper.dart';
-import 'package:movie_app/helper/custom_widget.dart';
 import 'package:movie_app/view/section/chart_section.dart';
 import 'package:movie_app/view/favourite_page.dart';
 import 'package:movie_app/view/section/genre_section.dart';
+import 'package:movie_app/view/section/person_section.dart';
 import 'package:movie_app/view/section/popular_section.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({
+  const HomePage({
     Key? key,
   }) : super(key: key);
   @override
@@ -52,12 +51,18 @@ class _HomePageState extends State<HomePage> {
       body: SingleChildScrollView(
         child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [PopularSection(), ChartSection(), GenreSection()]),
+            children: const [
+              PopularSection(),
+              GenreSection(),
+              ChartSection(),
+              PersonSection()
+            ]),
       ),
     );
   }
 }
 
 toFavouriteMovie(BuildContext context) {
-  Navigator.push(context, MaterialPageRoute(builder: (_) => FavouritePage()));
+  Navigator.push(
+      context, MaterialPageRoute(builder: (_) => const FavouritePage()));
 }
