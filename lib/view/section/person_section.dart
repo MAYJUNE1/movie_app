@@ -4,7 +4,6 @@ import 'package:movie_app/helper/api_helper.dart';
 import 'package:movie_app/helper/constants.dart';
 import 'package:movie_app/helper/custom_widget.dart';
 import 'package:movie_app/model/cast.dart';
-import 'package:movie_app/model/movie.dart';
 import 'package:movie_app/model/person.dart';
 import 'package:movie_app/view/movie_details_page.dart';
 import 'package:movie_app/view_model/movie_provider.dart';
@@ -95,7 +94,7 @@ class _PersonSectionState extends State<PersonSection> {
 
   Widget movieListView(Credit credit) {
     return SizedBox(
-        height: MediaQuery.of(context).size.height * 0.20,
+        height: MediaQuery.of(context).size.height * 0.30,
         child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: 5,
@@ -110,8 +109,22 @@ class _PersonSectionState extends State<PersonSection> {
           toMovieDetail(context, movieProvider, cast.id!);
         },
         child: Container(
-            padding: const EdgeInsets.all(5),
-            child: imageCardView(cast.poster_path!)));
+            width: MediaQuery.of(context).size.width * 0.40,
+            padding: const EdgeInsets.all(10),
+            child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Expanded(child: imageCardView(cast.poster_path!)),
+                  SizedBox(
+                      height: 35,
+                      child: Text(
+                        cast.title!,
+                        maxLines: 2,
+                        textAlign: TextAlign.center,
+                        overflow: TextOverflow.ellipsis,
+                      ))
+                ])));
   }
 }
 
